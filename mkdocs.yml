@@ -1,0 +1,72 @@
+site_name: __CUSTOMSITENAME__
+site_description: "Example documented repo"
+site_url: "https://equalapriori.github.io/..."
+repo_url: "https://github.com/EqualAPriori/..."
+repo_name: "..."
+site_dir: "site"
+
+theme:
+  name: material
+  features:
+  - navigation.tabs
+  - navigation.top 
+  - navigation.sections
+  palette:
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: lime
+    toggle:
+      icon: material/weather-night
+      name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+  - pymdownx.mark
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - toc:
+      toc_depth: 3
+# Other potential extensions:
+# - data
+# - latex
+# - many more: https://squidfunk.github.io/mkdocs-material/reference/lists/#using-definition-lists
+
+
+plugins:
+  - mkdocs-jupyter
+  - search
+  - gen-files:
+      scripts:
+      - docs/gen_ref_nav.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          setup_commands:
+          - import sys
+          - sys.path.append("docs")
+          selection:
+            new_path_syntax: yes
+          rendering:
+            show_source: true
+      watch:
+        - src/__MYPACKAGE__
+
+nav:
+    - "Home": index.md
+    - "Reference": 
+        - "At a glance": reference/ToC.md
+        - "Src": reference/
+
