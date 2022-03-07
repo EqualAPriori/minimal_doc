@@ -70,7 +70,7 @@ plugins:
           rendering:
             show_source: true
       watch:
-        - src/__MYPACKAGE__
+        - src/
 
 nav:
     - "Home": index.md
