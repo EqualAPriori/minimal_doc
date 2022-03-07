@@ -1,5 +1,7 @@
 """
 .. include:: ./top.md
+
+# and more content from docstring
 """
 import sys, os
 
