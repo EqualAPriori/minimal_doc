@@ -79,7 +79,7 @@ nav:
     - "pdoc3": pdoc3.md
     - "mkdocs": mkdocs.md
     - "hosting": hosting.md
-    - "Reference": 
+    - "API": 
         - "At a glance": reference/ToC.md
         - "Src": reference/
 
