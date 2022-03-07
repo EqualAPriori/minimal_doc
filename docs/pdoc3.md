@@ -84,6 +84,8 @@ The command to use is:
 
 This puts html files in a `../html` folder above the current `src` directory. For further discussion, see [here](https://github.com/pdoc3/pdoc/issues/55).
 
+To host, the cleanest way is to make a new (empty) branch and copy the contents of the `html` directory and put it into the `docs` directory of the new branch. Then, see the [hosting guide](hosting.md) about configuring github to know which branch and directory you want to host as your repository's page.
+
 ## More
 To see all the command line commands, simply type in
 
