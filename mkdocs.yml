@@ -2,11 +2,12 @@ site_name: Documentation tutorials
 site_description: "Example documented repo"
 site_url: "https://equalapriori.github.io/minimal_doc"
 repo_url: "https://github.com/EqualAPriori/minimal_doc"
+edit_uri: "tree/example/docs/"
 repo_name: "minimal_doc"
 site_dir: "site"
 
 theme:
-  name: material
+  name: readthedocs
   features:
   - navigation.tabs
   - navigation.top 
@@ -38,6 +39,7 @@ markdown_extensions:
       toc_depth: 3
   - pymdownx.arithmatex:
       generic: true
+  - attr_list
 # Other potential extensions:
 # - data
 # - latex
@@ -79,6 +81,7 @@ nav:
     - "pdoc3": pdoc3.md
     - "mkdocs": mkdocs.md
     - "hosting": hosting.md
+    - "fun slide": fun.md
     - "API": 
         - "At a glance": reference/ToC.md
         - "Src": reference/
