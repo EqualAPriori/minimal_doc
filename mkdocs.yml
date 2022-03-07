@@ -1,8 +1,8 @@
 site_name: Documentation tutorials
 site_description: "Example documented repo"
-site_url: "https://equalapriori.github.io/..."
-repo_url: "https://github.com/EqualAPriori/..."
-repo_name: "..."
+site_url: "https://equalapriori.github.io/minimal_doc"
+repo_url: "https://github.com/EqualAPriori/minimal_doc"
+repo_name: "minimal_doc"
 site_dir: "site"
 
 theme:
