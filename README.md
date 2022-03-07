@@ -1,4 +1,4 @@
-Minimal code templates for setting up documentation.
+# Minimal code templates for setting up documentation.
 
 The default (`material`) branch is a minimal setup for `mkdocs`, using the material theme, and with common settings enabled (e.g. latex, autodoc navigation generation, jupyter notebooks). There is also a branch that uses the ReadTheDocs theme.
 
