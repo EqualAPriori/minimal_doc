@@ -1,1 +1,7 @@
 mkdocs
+mkdocs-material
+mkdocs-jupyter
+mkdocstrings
+mkdocs-literate-nav
+mkdocs-gen-files
+pymdown-extensions

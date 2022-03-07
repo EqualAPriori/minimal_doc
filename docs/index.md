@@ -9,8 +9,7 @@ Here we provide short tutorials on generating documentation, with the templates 
 5. [hosting](hosting.md)
 
 
-Some examples of documented code:
-
+## Examples of other documented projects
 - [mdtraj](https://www.mdtraj.org/1.9.8.dev0/index.html):
     - Uses `sphinx` with `ReadTheDocs` theme. Note the "view page source" link on the top right of the page, which shows the reStructuredText used to write the page.
 - [scikitlearn](https://scikit-learn.org/stable/modules/classes.html)

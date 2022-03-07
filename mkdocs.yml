@@ -78,6 +78,7 @@ nav:
     - "docstrings": docstrings.md
     - "pdoc3": pdoc3.md
     - "mkdocs": mkdocs.md
+    - "hosting": hosting.md
     - "Reference": 
         - "At a glance": reference/ToC.md
         - "Src": reference/
