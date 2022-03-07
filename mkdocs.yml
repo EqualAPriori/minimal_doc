@@ -1,4 +1,4 @@
-site_name: __CUSTOMSITENAME__
+site_name: Documentation tutorials
 site_description: "Example documented repo"
 site_url: "https://equalapriori.github.io/..."
 repo_url: "https://github.com/EqualAPriori/..."
@@ -74,6 +74,10 @@ plugins:
 
 nav:
     - "Home": index.md
+    - "markdown": markdown.md
+    - "docstrings": docstrings.md
+    - "pdoc3": pdoc3.md
+    - "mkdocs": mkdocs.md
     - "Reference": 
         - "At a glance": reference/ToC.md
         - "Src": reference/
