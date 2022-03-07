@@ -16,11 +16,11 @@ Assumptions:
 
 """
 ### ONLY USER SETTINGS:
-src_dir = 'src'
-ref_dir = 'reference'
-ignore_files = ['setup.py']
-ignore_file_prefixes = ['_']
-ignore_dirs = ['.egg-info','__']
+src_dir = "src"
+ref_dir = "reference"
+ignore_files = ["setup.py"]
+ignore_file_prefixes = ["_"]
+ignore_dirs = [".egg-info", "__"]
 """
 skeleton borrowed from https://github.com/mkdocstrings/mkdocstrings/blob/master/docs/gen_ref_nav.py
 """
@@ -29,6 +29,10 @@ skeleton borrowed from https://github.com/mkdocstrings/mkdocstrings/blob/master/
 from pathlib import Path
 
 import os
+import sys
+
+sys.path.insert(0, os.path.abspath("../src"))
+
 import mkdocs_gen_files
 
 nav = mkdocs_gen_files.Nav()
@@ -41,27 +45,31 @@ links = []
 indentation = 4
 
 # ITERATE
-for path in sorted(Path(src_dir).glob("**/*")): 
-    #if non-ignored dir, save
+for path in sorted(Path(src_dir).glob("**/*")):
+    # if non-ignored dir, save
     if path.is_dir():
-        if bool( [ele for ele in ignore_dirs if (ele in path.name)] ):
+        if bool([ele for ele in ignore_dirs if (ele in path.name)]):
             continue
-        else: 
+        else:
             level = str(path.relative_to(src_dir)).count(os.sep)
             levels.append(level)
             relpaths.append(path.name)
-            links.append('')
+            links.append("")
             continue
-    #check if is a file that we want to ignore 
-    if not path.name.endswith('py'):
+    # check if is a file that we want to ignore
+    if not path.name.endswith("py"):
         continue
-    if bool( [ele for ele in ignore_files if (ele in path.name)] ): #check if elements that we want to ignore occur
+    if bool(
+        [ele for ele in ignore_files if (ele in path.name)]
+    ):  # check if elements that we want to ignore occur
         continue
-    if bool( [ele for ele in ignore_file_prefixes if (path.name.startswith(ele))] ): #check if elements that we want to ignore occur
+    if bool(
+        [ele for ele in ignore_file_prefixes if (path.name.startswith(ele))]
+    ):  # check if elements that we want to ignore occur
         continue
 
     paths.append(str(path))
-    module_path = path.relative_to(src_dir).with_suffix("") 
+    module_path = path.relative_to(src_dir).with_suffix("")
     doc_path = path.relative_to(src_dir).with_suffix(".md")
     full_doc_path = Path(ref_dir, doc_path)
 
@@ -70,10 +78,9 @@ for path in sorted(Path(src_dir).glob("**/*")):
     relpaths.append(path.name)
     links.append(doc_path)
 
-
-    #print(module_path)
-    #print(doc_path)
-    #print(full_doc_path)
+    # print(module_path)
+    # print(doc_path)
+    # print(full_doc_path)
 
     parts = list(module_path.parts)
     parts[-1] = f"{parts[-1]}.py"
@@ -87,23 +94,25 @@ for path in sorted(Path(src_dir).glob("**/*")):
 
 with mkdocs_gen_files.open("{}/SUMMARY.md".format(ref_dir), "w") as nav_file:
     nav_file.writelines(nav.build_literate_nav())
-    #print('\n'.join(list(nav.build_literate_nav())))
+    # print('\n'.join(list(nav.build_literate_nav())))
 
-with mkdocs_gen_files.open("{}/ToC.md".format(ref_dir),'w') as toc_file:
+with mkdocs_gen_files.open("{}/ToC.md".format(ref_dir), "w") as toc_file:
     print("===")
-    print('AUTOREF ToC: ')
+    print("AUTOREF ToC: ")
     toc_file.write("# Code Tree\n")
-    for lvl,relpath,link in zip( levels,relpaths,links ):
+    for lvl, relpath, link in zip(levels, relpaths, links):
         if link == "":
-            line = '{sep}- {name}/'.format(sep=lvl*' '*indentation,name=relpath)
+            line = "{sep}- {name}/".format(sep=lvl * " " * indentation, name=relpath)
         else:
-            line = '{sep}- [{name}]({link})'.format(sep=lvl*' '*indentation,name=relpath,link=link)
+            line = "{sep}- [{name}]({link})".format(
+                sep=lvl * " " * indentation, name=relpath, link=link
+            )
         print(line)
-        toc_file.write(line+"\n")
+        toc_file.write(line + "\n")
     print("===")
-    #toc_file.writelines("\n".join(paths))
+    # toc_file.writelines("\n".join(paths))
 
-''' Not used:
+""" Not used:
 nav["mkdocs_autorefs", "references.py"] = "autorefs/references.md"
 nav["mkdocs_autorefs", "plugin.py"] = "autorefs/plugin.md"
-'''
+"""
